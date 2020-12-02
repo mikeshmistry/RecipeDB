@@ -10,7 +10,7 @@ namespace DatabaseContext
     /// <summary>
     /// Database Context class for a recipe database
     /// </summary>
-    class RecipeContext : DbContext
+  public  class RecipeContext : DbContext
     {
         #region Entities 
 
