@@ -17,7 +17,7 @@ namespace Entities
         /// Primary key auto seeded
         /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int InstructionId { get; set; }
+        public int CookingInstructionId { get; set; }
 
         /// <summary>
         /// Name for the instruction 
