@@ -8,10 +8,16 @@ using System.Text;
 
 namespace Repositories
 {
+    /// <summary>
+    /// Repository class for the recipe entity 
+    /// </summary>
    public class RecipeRepository : Repository<Recipe>
     {
-        #region Properties
+        #region Property
         
+        /// <summary>
+        /// Property to the Recipe Context
+        /// </summary>
         private RecipeContext RecipeContext
         {
             get
@@ -35,7 +41,7 @@ namespace Repositories
 
         #endregion
 
-        #region Other Queries
+        #region Other Methods
 
         /// <summary>
         /// Query that gets all the ingredients that are linked to the recipe 
@@ -67,7 +73,7 @@ namespace Repositories
         /// <returns>A list of cooking instruction objects. Null list otherwise</returns>
         public List<CookingInstruction> GetCookingInstructions(int recipeId)
         {
-            List<CookingInstruction> cookingInstructions = new List<CookingInstruction>();
+            List<CookingInstruction> cookingInstructions = null;
 
             var allcookingInstructions = RecipeContext.Recipes
                                  .Where(recipe => recipe.RecipeId == recipeId)
