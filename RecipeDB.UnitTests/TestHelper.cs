@@ -1,8 +1,9 @@
 ﻿using DatabaseContext;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
-namespace StudentGradingDB.UnitTests
+namespace RecipeDB.UnitTests
 {
     /// <summary>
     ///  Helper class to help with common test configurations options
@@ -28,12 +29,14 @@ namespace StudentGradingDB.UnitTests
         /// </summary>
         protected void SetupConnectionAndContext()
         {
+           
             Connection = new SqliteConnection("DataSource=:memory:");
 
             //create the options
             var options = new DbContextOptionsBuilder<RecipeContext>()
                        .UseSqlite(Connection)
                        .Options;
+
 
             //set the context
             Context = new RecipeContext(options);
