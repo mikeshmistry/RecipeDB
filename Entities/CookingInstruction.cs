@@ -32,5 +32,14 @@ namespace Entities
         public string Instruction { get; set; }
 
         #endregion
+
+        #region RelationShips
+        
+        /// <summary>
+        /// Many to one relationship to recipe
+        /// </summary>
+        public Recipe Recipe { get; set; }
+
+        #endregion 
     }
 }

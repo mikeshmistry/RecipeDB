@@ -26,6 +26,15 @@ namespace Entities
         [Required]
         public string Name { get; set; }
 
-        #endregion 
+        #endregion
+
+        #region RelationShips
+
+        /// <summary>
+        /// Many to one relationship between recipe and Ingredients 
+        /// </summary>
+        public Recipe Recipe { get; set; }
+
+        #endregion
     }
 }
