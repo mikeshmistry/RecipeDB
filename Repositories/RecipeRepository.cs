@@ -44,7 +44,7 @@ namespace Repositories
         /// <returns></returns>
         public List<Ingredient> GetIngredients(int recipeId)
         {
-            var ingredients = new List<Ingredient>();
+            List<Ingredient> ingredients = null;
 
             //get all the ingredients for the recipe 
 
@@ -67,7 +67,7 @@ namespace Repositories
         /// <returns>A list of cooking instruction objects. Null list otherwise</returns>
         public List<CookingInstruction> GetCookingInstructions(int recipeId)
         {
-            var cookingInstructions = new List<CookingInstruction>();
+            List<CookingInstruction> cookingInstructions = new List<CookingInstruction>();
 
             var allcookingInstructions = RecipeContext.Recipes
                                  .Where(recipe => recipe.RecipeId == recipeId)
