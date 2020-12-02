@@ -9,7 +9,7 @@ namespace Entities
     /// <summary>
     /// Entity class to represent cooking instructions object
     /// </summary>
-    class CookingInstruction
+   public class CookingInstruction
     {
         #region Properties
 

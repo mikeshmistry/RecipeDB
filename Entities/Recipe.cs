@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Entities
 {
-    class Recipe
+    public class Recipe
     {
         #region Properties 
         /// <summary>

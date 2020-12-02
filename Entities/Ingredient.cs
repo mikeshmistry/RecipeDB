@@ -10,7 +10,7 @@ namespace Entities
     /// <summary>
     /// Entity class to represent an ingredient object
     /// </summary>
-    class Ingredient
+    public class Ingredient
     {
         #region Properties
 
