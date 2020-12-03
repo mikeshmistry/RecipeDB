@@ -42,7 +42,7 @@ namespace Repositories
 
         #endregion
 
-        #region Other Queries
+        #region Other Methods
 
         /// <summary>
         /// Add an ingredient to a recipe
