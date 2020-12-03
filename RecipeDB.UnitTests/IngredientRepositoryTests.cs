@@ -231,7 +231,10 @@ namespace RecipeDB.UnitTests
 
         }
 
-
+        /// <summary>
+        /// Test add an ingredient to a recipe both are found
+        /// </summary>
+        [TestCase]
         public void AddIngredientToRecipe_BothFound_ReturnsTrue()
         {
             //create the new recipe 
@@ -255,7 +258,6 @@ namespace RecipeDB.UnitTests
             };
 
             //add the ingredients
-            var ingredientRepository = new IngredientRepository(Context);
             ingredientRepository.AddRange(ingredients);
 
             //get all ingredients and now add it to the recipe 
