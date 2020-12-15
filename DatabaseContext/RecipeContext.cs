@@ -47,7 +47,14 @@ namespace DatabaseContext
         /// <param name="options">The options object</param>
         public RecipeContext(DbContextOptions<RecipeContext> options) : base(options)
         {
+         
+        }
 
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+           optionsBuilder.UseSqlServer("Server = localhost\\SQLEXPRESS; Database = Recipes; Trusted_Connection = True; ");
+        
         }
 
         #endregion 
