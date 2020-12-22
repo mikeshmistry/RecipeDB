@@ -26,12 +26,13 @@ namespace Repositories
         #region Constructors
 
         /// <summary>
-        /// Constructor that takes in dbcontext
+        /// Constructor that takes in db context
         /// </summary>
         /// <param name="dbContext">the database connection to use</param>
         public Repository(DbContext dbContext)
         {
             Context = dbContext;
+            Context.Database.EnsureCreated();
         }
 
         #endregion
