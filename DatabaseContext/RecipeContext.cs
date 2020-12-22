@@ -35,9 +35,9 @@ namespace DatabaseContext
         /// <summary>
         /// Default constructor
         /// </summary>
-        public RecipeContext()
+        public RecipeContext() : base()
         {
-
+          
         }
 
 
@@ -53,8 +53,8 @@ namespace DatabaseContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           optionsBuilder.UseSqlServer("Server = localhost\\SQLEXPRESS; Database = Recipes; Trusted_Connection = True; ");
-        
+           optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS; Database=Recipes; Trusted_Connection=True; ");
+            
         }
 
         #endregion 
