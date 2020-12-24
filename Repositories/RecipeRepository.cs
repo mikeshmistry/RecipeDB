@@ -44,6 +44,23 @@ namespace Repositories
         #region Other Methods
 
         /// <summary>
+        /// Query to get a recipe by the id that includes ingredients and cooking instructions
+        /// </summary>
+        /// <param name="recipeId">The id of the recipe</param>
+        /// <returns>A recipe that includes the ingredients and cooking instructions. Null otherwise</returns>
+        public Recipe GetRecipeWithIngredientsAndCookingInstructions(int recipeId)
+        {
+            var recipe = RecipeContext.Recipes
+                         .Where(recipe => recipe.RecipeId == recipeId)
+                         .Include(ingredient => ingredient.Ingredients)
+                         .Include(instructions => instructions.CookingInstructions)
+                         .FirstOrDefault();
+
+            return recipe;
+        }
+
+
+        /// <summary>
         /// Query that gets all the ingredients that are linked to the recipe 
         /// </summary>
         /// <param name="recipeId">The id of the recipe to find the ingredients for</param>
@@ -86,6 +103,7 @@ namespace Repositories
 
             return cookingInstructions;
         }
+
 
         #endregion
 
