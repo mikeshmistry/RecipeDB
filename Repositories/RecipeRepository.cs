@@ -74,6 +74,8 @@ namespace Repositories
             var allIngredients = RecipeContext.Recipes
                                  .Where(recipe => recipe.RecipeId == recipeId)
                                  .Include(ingredient => ingredient.Ingredients)
+                                 .Where(ingredient => ingredient.RecipeId == recipeId)
+                                 .AsNoTracking()
                                  .FirstOrDefault();
 
             //found the ingredients
@@ -95,6 +97,8 @@ namespace Repositories
             var allcookingInstructions = RecipeContext.Recipes
                                  .Where(recipe => recipe.RecipeId == recipeId)
                                  .Include(instructions => instructions.CookingInstructions)
+                                 .Where(instructions => instructions.RecipeId == recipeId)
+                                 .AsNoTracking()
                                  .FirstOrDefault();
 
             //found the cooking instructions
@@ -115,7 +119,9 @@ namespace Repositories
                          .Where(recipe => recipe.RecipeId == recipeId)
                          .Include(ingredients => ingredients.Ingredients)
                          .Include(instructions => instructions.CookingInstructions)
+                         .AsNoTracking()
                          .FirstOrDefault();
+                         
 
             return recipe;
         }
