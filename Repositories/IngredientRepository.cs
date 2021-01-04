@@ -87,6 +87,24 @@ namespace Repositories
             return added;
         }
 
+        /// <summary>
+        /// Method to delete an ingredient from the database
+        /// </summary>
+        /// <param name="ingredientId">The id of the ingredient to be deleted</param>
+        public void DeleteIngrident(int ingredientId)
+        {
+            var foundIngredient = RecipeContext.Ingredients
+                                  .Where(ingredient => ingredient.IngredientId == ingredientId)
+                                  .Include(ingredient => ingredient.Recipe)
+                                  .FirstOrDefault();
+
+            //Delete the ingredient 
+            if (foundIngredient != null)
+                Remove(foundIngredient);
+
+            
+        }
+
        
         #endregion 
     }

@@ -44,11 +44,10 @@ namespace Repositories
         #region Other Methods
 
         /// <summary>
-        /// Query to get a recipe by the id that includes ingredients and cooking instructions
+        /// Method to delete a recipe from the database
         /// </summary>
-        /// <param name="recipeId">The id of the recipe</param>
-        /// <returns>A recipe that includes the ingredients and cooking instructions. Null otherwise</returns>
-        public Recipe GetRecipeWithIngredientsAndCookingInstructions(int recipeId)
+        /// <param name="recipeId">The id of the recipe to delete</param>
+        public void DeleteRecipe(int recipeId)
         {
             var recipe = RecipeContext.Recipes
                          .Where(recipe => recipe.RecipeId == recipeId)
@@ -56,12 +55,13 @@ namespace Repositories
                          .Include(instructions => instructions.CookingInstructions)
                          .FirstOrDefault();
 
-            return recipe;
+            if (recipe != null)
+                Remove(recipe);
         }
 
 
         /// <summary>
-        /// Query that gets all the ingredients that are linked to the recipe 
+        /// Method that gets all the ingredients that are linked to the recipe 
         /// </summary>
         /// <param name="recipeId">The id of the recipe to find the ingredients for</param>
         /// <returns></returns>
@@ -84,7 +84,7 @@ namespace Repositories
         }
 
         /// <summary>
-        /// Query to get all cooking instructions that are linked to the recipe 
+        /// Method to get all cooking instructions that are linked to the recipe 
         /// </summary>
         /// <param name="recipeId">The id of the recipe to find the cooking instructions for</param>
         /// <returns>A list of cooking instruction objects. Null list otherwise</returns>

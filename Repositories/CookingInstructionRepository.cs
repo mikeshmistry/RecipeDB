@@ -79,6 +79,22 @@ namespace Repositories
             return added;
         }
 
+
+        /// <summary>
+        /// Method to delete a cooking instruction
+        /// </summary>
+        /// <param name="instructionId">the id of the cooking instruction to be deleted</param>
+        public void DeleteCookingInstruction(int instructionId)
+        {
+            var foundCookingInstruction = RecipeContext.CookingInstructions
+                                          .Where(instruction => instruction.CookingInstructionId == instructionId)
+                                          .Include(instruction => instruction.Recipe)
+                                          .FirstOrDefault();
+
+            if (foundCookingInstruction != null)
+                Remove(foundCookingInstruction);
+        }
+
         #endregion 
     }
 }
