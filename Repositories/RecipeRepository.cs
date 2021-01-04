@@ -104,6 +104,22 @@ namespace Repositories
             return cookingInstructions;
         }
 
+        /// <summary>
+        /// Method to get a recipe with all ingredients and cooking instructions
+        /// </summary>
+        /// <param name="recipeId">The id of the recipe to be found</param>
+        /// <returns>A recipe with all the ingredients and cooking instructions</returns>
+        public Recipe GetRecipeWithIngredientsAndInstructions(int recipeId)
+        {
+            var recipe = RecipeContext.Recipes
+                         .Where(recipe => recipe.RecipeId == recipeId)
+                         .Include(ingredients => ingredients.Ingredients)
+                         .Include(instructions => instructions.CookingInstructions)
+                         .FirstOrDefault();
+
+            return recipe;
+        }
+
 
         #endregion
 
