@@ -40,23 +40,19 @@ namespace DatabaseContext
           
         }
 
-
+   
         /// <summary>
-        /// Constructor that takes in a context options
+        /// Constructor that takes in a context options 
         /// </summary>
         /// <param name="options">The options object</param>
         public RecipeContext(DbContextOptions<RecipeContext> options) : base(options)
         {
-         
+          
         }
 
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-           optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS; Database=Recipes; Trusted_Connection=True; ");
-            
-        }
 
-        #endregion 
+
+        #endregion
     }
 }
